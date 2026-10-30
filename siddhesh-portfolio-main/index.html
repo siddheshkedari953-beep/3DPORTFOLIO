@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Siddhesh Kedari | Cloud, DevOps & Software Development</title>
+  <meta name="description" content="Portfolio of Siddhesh Kedari, a final-year Computer Science Honours student at MIT-WPU, Pune, specializing in Cloud Computing. Explore cloud, DevOps, software development, and data analysis projects." />
+  <meta name="author" content="Siddhesh Kedari" />
+  <meta name="theme-color" content="#050505" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Siddhesh Kedari | Cloud, DevOps & Software Development" />
+  <meta property="og:description" content="Cloud computing, DevOps, software development, and data analysis projects by Siddhesh Kedari." />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="world/world.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===================================================
+       PORTFOLIO SECTIONS
+       Original cinematic styles remain in styles.css.
+       =================================================== */
+    .portfolio-section {
+      position: relative;
+      padding: 110px 8%;
+      background: #080808;
+      color: #f5f5f5;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .portfolio-section .section-label {
+      color: #a6a6a6;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .portfolio-section .section-heading {
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin: 0 0 28px;
+      font-weight: 700;
+    }
+
+    .portfolio-section .section-heading em {
+      color: #b4ff6c;
+      font-style: normal;
+    }
+
+    .portfolio-section .section-copy {
+      max-width: 760px;
+      color: #aaa;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 45px;
+    }
+
+    .portfolio-card {
+      border: 1px solid #292929;
+      border-radius: 14px;
+      padding: 28px;
+      background: linear-gradient(145deg, #151515, #0b0b0b);
+      transition: transform .3s ease, border-color .3s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+      border-color: #b4ff6c;
+    }
+
+    .portfolio-card .card-number {
+      color: #b4ff6c;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .portfolio-card h3 {
+      font-size: 23px;
+      margin: 20px 0 12px;
+    }
+
+    .portfolio-card p {
+      color: #aaa;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* Small architecture line inside a project card */
+    .card-flow {
+      margin-top: 16px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: #0f0f0f;
+      border: 1px dashed #333;
+      color: #b4ff6c;
+      font-size: 11.5px;
+      letter-spacing: .4px;
+      line-height: 1.7;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .tech-tags span {
+      border: 1px solid #333;
+      border-radius: 30px;
+      padding: 7px 11px;
+      font-size: 11px;
+      color: #ddd;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .project-links a,
+    .portfolio-link {
+      color: #b4ff6c;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .project-links a:hover,
+    .portfolio-link:hover {
+      text-decoration: underline;
+    }
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 35px;
+    }
+
+    .skill-item {
+      border: 1px solid #292929;
+      border-radius: 10px;
+      padding: 20px;
+      background: #101010;
+    }
+
+    .skill-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .skill-item span {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.7;
+    }
+
+    .education-card {
+      margin-top: 35px;
+      padding: 28px;
+      border-left: 2px solid #b4ff6c;
+      background: #101010;
+    }
+
+    .education-card h3 {
+      margin: 0 0 12px;
+      font-size: 21px;
+    }
+
+    .education-card p {
+      color: #aaa;
+      line-height: 1.8;
+    }
+
+    .coursework-label {
+      margin-top: 45px;
+      color: #a6a6a6;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .contact-email {
+      color: #b4ff6c;
+    }
+
+    @media (max-width: 700px) {
+      .portfolio-section {
+        padding: 75px 6%;
+      }
+
+      .portfolio-grid,
+      .skill-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-section .section-heading {
+        letter-spacing: -1px;
+      }
+
+      .portfolio-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PRELOADER -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <div class="preloader__logo">SK<span class="accent">.</span></div>
+      <div class="preloader__bar-wrap">
+        <div class="preloader__bar" id="preloaderBar"></div>
+      </div>
+      <div class="preloader__counter">
+        <span class="preloader__pct" id="preloaderPct">0</span>
+        <span class="preloader__pct-sign">%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav">
+    <div class="nav__logo">SK<span class="accent">.</span></div>
+    <div class="nav__links">
+      <a href="#work">About</a>
+      <a href="#services">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#roadmap">In Progress</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav__cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- CINEMATIC HERO: KEEP CANVAS AND ORIGINAL CLASSES -->
+  <section class="hero" id="hero">
+    <div class="hero__pin">
+      <canvas class="hero__canvas" id="heroCanvas"></canvas>
+      <div class="hero__overlay"></div>
+      <div class="hero__fade-out"></div>
+
+      <div class="hero__content">
+        <p class="hero__tag">CLOUD COMPUTING · DEVOPS · SOFTWARE DEVELOPMENT</p>
+        <h1 class="hero__heading">
+          <span class="hero__line">Building with</span>
+          <span class="hero__line">purpose &amp; <em>code.</em></span>
+        </h1>
+        <p class="hero__sub">
+          I'm Siddhesh Kedari, a final-year Computer Science Honours
+          student specializing in Cloud Computing at MIT-WPU. I enjoy
+          building software, automating deployments, and exploring
+          practical cloud technologies.
+        </p>
+        <a href="#projects" class="btn">
+          Explore My Projects <span class="btn__arrow">&rarr;</span>
+        </a>
+      </div>
+
+      <div class="hero__scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND CINEMATIC FRAME SEQUENCE -->
+  <section class="video-transition">
+    <div class="video-transition__inner">
+      <div class="video-transition__frame">
+        <canvas id="vtCanvas" class="video-transition__canvas"></canvas>
+      </div>
+      <div class="video-transition__overlay"></div>
+      <div class="video-transition__text">
+        <span class="vt-word">Learn</span>
+        <span class="vt-dot"></span>
+        <span class="vt-word">Build</span>
+        <span class="vt-dot"></span>
+        <span class="vt-word">Deploy</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ME -->
+  <section class="intro" id="work">
+    <div class="intro__video-wrap">
+      <video class="intro__video" muted playsinline autoplay loop>
+        <source src="https://videos.pexels.com/video-files/7547023/7547023-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+      </video>
+      <div class="intro__overlay"></div>
+    </div>
+
+    <div class="intro__content">
+      <div class="intro__label">
+        <span class="label-line"></span>
+        <span>About Me</span>
+      </div>
+
+      <h2 class="intro__heading reveal-text">
+        Curious about technology.<br />
+        Driven to <em>build.</em><br />
+        Always learning.
+      </h2>
+
+      <div class="intro__cols">
+        <div class="intro__col reveal-up">
+          <p>
+            I'm Siddhesh Kedari, a final-year Bachelor of Computer Science
+            with Honours student at MIT World Peace University, Pune,
+            specializing in Cloud Computing. I'm interested in how software,
+            infrastructure, and automation work together to solve practical problems.
+          </p>
+        </div>
+
+        <div class="intro__col reveal-up">
+          <p>
+            My hands-on academic projects include a CI/CD pipeline using
+            GitHub, Jenkins, AWS EC2, Docker, Docker Hub, and K3s, along
+            with a breast cancer classification project using R, Decision
+            Trees, and Random Forest. I continue improving my projects while
+            expanding my cloud and software development skills.
+          </p>
+        </div>
+      </div>
+
+      <div class="intro__stats">
+        <div class="stat reveal-up">
+          <div class="stat__inner">
+            <span class="stat__number">01</span>
+            <span class="stat__label">Final-Year Honours Student</span>
+          </div>
+        </div>
+
+        <div class="stat reveal-up">
+          <div class="stat__inner">
+            <span class="stat__number">02</span>
+            <span class="stat__label">Cloud Computing Specialization</span>
+          </div>
+        </div>
+
+        <div class="stat reveal-up">
+          <div class="stat__inner">
+            <span class="stat__number">03</span>
+            <span class="stat__label">Projects in Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL SKILLS: PRESERVE ORIGINAL SERVICES SECTION -->
+  <section class="services" id="services">
+    <div class="services__bg">
+      <video class="services__video" muted playsinline autoplay loop>
+        <source src="https://videos.pexels.com/video-files/32336468/13794791_1920_1080_30fps.mp4" type="video/mp4" />
+      </video>
+      <div class="services__video-overlay"></div>
+    </div>
+
+    <div class="services__inner">
+      <div class="services__left">
+        <div class="services__sticky">
+          <span class="services__number">01</span>
+          <h2 class="services__title">My Skills</h2>
+          <p class="services__desc">
+            Technologies and tools I have studied and used in my
+            academic and personal projects.
+          </p>
+        </div>
+      </div>
+
+      <div class="services__right">
+        <div class="service-item" data-index="01">
+          <span class="service-item__index">01</span>
+          <div class="service-item__content">
+            <h3>Programming</h3>
+            <p>Java, C, C++, Python fundamentals, and object-oriented programming.</p>
+          </div>
+        </div>
+
+        <div class="service-item" data-index="02">
+          <span class="service-item__index">02</span>
+          <div class="service-item__content">
+            <h3>Web & Frontend</h3>
+            <p>HTML, CSS, JavaScript, React, Chart.js, GSAP animations, and responsive layouts.</p>
+          </div>
+        </div>
+
+        <div class="service-item" data-index="03">
+          <span class="service-item__index">03</span>
+          <div class="service-item__content">
+            <h3>Cloud Computing</h3>
+            <p>AWS (EC2, S3, CloudFront, API Gateway, Lambda, DynamoDB), serverless design, virtualization, load balancing, and GCP and Azure fundamentals.</p>
+          </div>
+        </div>
+
+        <div class="service-item" data-index="04">
+          <span class="service-item__index">04</span>
+          <div class="service-item__content">
+            <h3>DevOps & CI/CD</h3>
+            <p>Jenkins pipelines, GitHub webhooks, Docker images, Docker Hub, and automated build and deploy workflows.</p>
+          </div>
+        </div>
+
+        <div class="service-item" data-index="05">
+          <span class="service-item__index">05</span>
+          <div class="service-item__content">
+            <h3>Container Orchestration</h3>
+            <p>Kubernetes and K3s: pods, Services, replicas, and rolling out new image versions.</p>
+          </div>
+        </div>
+
+        <div class="service-item" data-index="06">
+          <span class="service-item__index">06</span>
+          <div class="service-item__content">
+            <h3>Data & Big Data</h3>
+            <p>SQL fundamentals, R programming, exploratory analysis, Decision Trees and Random Forest, plus Hadoop ecosystem concepts: HDFS, MapReduce, Hive, Pig, and Spark.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADDITIONAL CINEMATIC VIDEO SECTION -->
+  <section class="cinematic" id="break">
+    <div class="cinematic__sticky">
+      <div class="cinematic__video-frame">
+        <video class="cinematic__video" muted playsinline autoplay loop>
+          <source src="https://videos.pexels.com/video-files/36619504/15525739_2560_1440_30fps.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="cinematic__overlay"></div>
+      <div class="cinematic__content">
+        <h2 class="cinematic__heading">
+          <span class="cin-line">Ideas into</span>
+          <span class="cin-line">reality.</span>
+        </h2>
+      </div>
+      <div class="cinematic__counter">
+        <span class="cinematic__count">00</span>
+        <span class="cinematic__count-label">% revealed</span>
+      </div>
+    </div>
+  </section>
+
+<!-- ===================================================================
+     3D WORLD  ·  starts right after the "Ideas into reality." scene
+     Scenes: gateway, identity, skills, projects (3), journey, contact
+     Text lives in HTML (readable, searchable, keyboard-friendly);
+     world/world.js draws the connected 3D environment behind it.
+     =================================================================== -->
+<div class="world" id="world" data-state="pending">
+
+  <canvas class="world__canvas" id="worldCanvas" aria-hidden="true"></canvas>
+  <div class="world__veil" aria-hidden="true"></div>
+
+  <nav class="world__rail" id="worldRail" aria-label="Jump to a section of the 3D world">
+    <a href="#skill-universe">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#journey">Journey</a>
+    <a href="#contact">Contact</a>
+    <button type="button" id="flatToggle" aria-pressed="false">Flat view</button>
+  </nav>
+
+  <div class="w-tip" id="worldTip" hidden></div>
+
+  <!-- A · GATEWAY -->
+  <section class="w-scene" id="gateway" aria-labelledby="gwTitle">
+    <div class="w-panel w-panel--hero">
+      <h2 id="gwTitle">Turn ideas into reality.</h2>
+      <p>
+        Keep scrolling and the camera travels through everything I have built and learned:
+        skills, projects, and the path from coursework to cloud engineering.
+      </p>
+      <p class="w-hint">Use the links on the right edge to jump to any section.</p>
+    </div>
+  </section>
+
+  <!-- B · IDENTITY -->
+  <section class="w-scene" id="identity" aria-labelledby="idTitle">
+    <div class="w-panel">
+      <h2 id="idTitle">Siddhesh Kedari</h2>
+      <p>
+        I'm interested in how software, infrastructure, and automation work together
+        to solve practical problems.
+      </p>
+      <dl class="w-facts">
+        <div><dt>Studying</dt><dd>Bachelor of Computer Science with Honours (final year)</dd></div>
+        <div><dt>University</dt><dd>MIT World Peace University (MIT-WPU), Pune</dd></div>
+        <div><dt>Specialization</dt><dd>Cloud Computing</dd></div>
+        <div><dt>Graduating</dt><dd>Expected 2027</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- C · SKILL UNIVERSE -->
+  <section class="w-scene w-scene--tall" id="skill-universe" aria-labelledby="skTitle">
+    <div class="w-panel w-panel--wide">
+      <h2 id="skTitle">Skill universe</h2>
+      <p>
+        Each cluster is a skill area. Hover or tap a node, or pick a skill from the list,
+        to see what it is and where I used it.
+      </p>
+      <p class="w-legend">
+        <span class="w-legend__item"><i class="dot dot--solid"></i> Used in my projects</span>
+        <span class="w-legend__item"><i class="dot dot--hollow"></i> Studied in coursework</span>
+      </p>
+
+      <div class="sk-detail" aria-live="polite">
+        <h3 id="skName">Select a skill</h3>
+        <p id="skMeta" class="sk-meta">Nothing selected yet</p>
+        <p id="skNote">Pick any node in the 3D view or any name below.</p>
+      </div>
+
+      <div class="skill-groups">
+        <div class="skill-group" data-group="Programming" data-color="#8ea2ff">
+          <h3>Programming</h3>
+          <ul>
+            <li><button type="button" class="chip" data-tag="studied" data-note="Object-oriented programming in Java, studied in coursework.">Java</button></li>
+            <li><button type="button" class="chip" data-tag="studied" data-note="C and C++ studied in coursework.">C and C++</button></li>
+            <li><button type="button" class="chip" data-tag="studied" data-note="Python fundamentals and object-oriented programming.">Python</button></li>
+            <li><button type="button" class="chip" data-tag="studied" data-note="Relational database queries, at a fundamentals level.">SQL</button></li>
+          </ul>
+        </div>
+        <div class="skill-group" data-group="Web development" data-color="#38e8ff">
+          <h3>Web development</h3>
+          <ul>
+            <li><button type="button" class="chip" data-tag="used" data-note="Used to build Ledger (expense tracker) and this portfolio.">HTML, CSS, JavaScript</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Used in Exam Mentor AI, a chat interface for exam revision. Fundamentals level.">React</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Layouts that adapt from phones to desktops, including this site.">Responsive design</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Scroll-driven animation in this portfolio, built with GSAP and ScrollTrigger.">GSAP animation</button></li>
+          </ul>
+        </div>
+        <div class="skill-group" data-group="Cloud computing" data-color="#4f8bff">
+          <h3>Cloud computing</h3>
+          <ul>
+            <li><button type="button" class="chip" data-tag="used" data-note="Virtual servers in AWS. The CI/CD pipeline in Student Task Manager runs on EC2.">AWS EC2</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Object storage. Serves the frontend of Taska, my serverless to-do app.">AWS S3</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Content delivery network in front of Taska's frontend.">AWS CloudFront</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Serverless functions that handle Taska's requests.">AWS Lambda</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Exposes Taska's Lambda functions as an HTTP API.">API Gateway</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="NoSQL database that stores Taska's tasks.">DynamoDB</button></li>
+            <li><button type="button" class="chip" data-tag="studied" data-note="Core services of Google Cloud and Microsoft Azure, and how they compare with AWS. Fundamentals level.">GCP and Azure</button></li>
+          </ul>
+        </div>
+        <div class="skill-group" data-group="DevOps and automation" data-color="#a98bff">
+          <h3>DevOps and automation</h3>
+          <ul>
+            <li><button type="button" class="chip" data-tag="used" data-note="Runs the build and deploy pipeline in Student Task Manager.">Jenkins</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Tells Jenkins to start a build whenever code is pushed to GitHub.">GitHub webhooks</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Automated build, package and deploy workflow from a git push to running containers.">CI/CD pipelines</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Builds the app image and stores it in Docker Hub.">Docker and Docker Hub</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Runs the app as two pods behind a Service.">Kubernetes and K3s</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Version control and source hosting for all my projects.">Git and GitHub</button></li>
+          </ul>
+        </div>
+        <div class="skill-group" data-group="Data and analytics" data-color="#5eead4">
+          <h3>Data and analytics</h3>
+          <ul>
+            <li><button type="button" class="chip" data-tag="used" data-note="Used for data preparation, plots and models in the breast cancer classification project.">R programming</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Exploratory analysis and visualization in R.">Data analysis</button></li>
+            <li><button type="button" class="chip" data-tag="used" data-note="Classification models trained and evaluated in the R project.">Decision trees and random forests</button></li>
+            <li><button type="button" class="chip" data-tag="studied" data-note="HDFS, MapReduce, Hive, Pig and Spark concepts from Big Data coursework. Fundamentals level.">Hadoop and Spark</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D · PROJECTS -->
+  <section class="w-scene w-scene--intro" id="projects" aria-labelledby="pjTitle">
+    <div class="w-panel">
+      <h2 id="pjTitle">Projects</h2>
+      <p>
+        Three exhibits to explore, then three more below. Every link goes to a real page;
+        where a project has no public demo, none is shown.
+      </p>
+    </div>
+  </section>
+
+  <!-- D1 · CI/CD PIPELINE -->
+  <section class="w-scene w-scene--tall" id="proj-pipeline" aria-labelledby="ppTitle">
+    <div class="w-panel w-panel--wide">
+      <h3 class="w-title" id="ppTitle">Student Task Manager: CI/CD and containers</h3>
+      <dl class="w-facts">
+        <div><dt>Problem</dt><dd>Shipping a web app by hand is slow and easy to get wrong. This project automates the path from a code change to running containers.</dd></div>
+        <div><dt>What I built</dt><dd>A task manager web app and the delivery pipeline around it: GitHub, Jenkins on AWS EC2, Docker, Docker Hub, and K3s with two replicas behind a Service.</dd></div>
+        <div><dt>Built with</dt><dd>GitHub, GitHub webhooks, Jenkins, AWS EC2, Docker, Docker Hub, Kubernetes (K3s)</dd></div>
+      </dl>
+
+      <div class="w-actions">
+        <button type="button" class="w-btn" id="pipePlay">Play the pipeline</button>
+        <a class="w-link" href="https://github.com/siddheshkedari953-beep/student-task-manager" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
+      <p class="w-caption" id="pipeCaption" aria-live="polite">Press play to follow one git push through the pipeline.</p>
+
+      <ol class="stage-list" id="pipeStages">
+        <li><button type="button" data-i="0"><strong>GitHub</strong><span>A push lands in the repository.</span></button></li>
+        <li><button type="button" data-i="1"><strong>Webhook</strong><span>GitHub tells Jenkins that the code changed.</span></button></li>
+        <li><button type="button" data-i="2"><strong>Jenkins</strong><span>The pipeline starts on an AWS EC2 server.</span></button></li>
+        <li><button type="button" data-i="3"><strong>Docker build</strong><span>Jenkins builds a fresh image of the app.</span></button></li>
+        <li><button type="button" data-i="4"><strong>Docker Hub</strong><span>The image is pushed to the registry.</span></button></li>
+        <li><button type="button" data-i="5"><strong>Kubernetes (K3s)</strong><span>The new image runs as two pods behind a Service.</span></button></li>
+      </ol>
+      <p class="w-note">This animation explains how the pipeline works. It is not a live status display.</p>
+    </div>
+  </section>
+
+  <!-- D2 · DATA ANALYSIS -->
+  <section class="w-scene w-scene--tall" id="proj-data" aria-labelledby="pdTitle">
+    <div class="w-panel w-panel--wide">
+      <h3 class="w-title" id="pdTitle">Breast cancer classification in R</h3>
+      <dl class="w-facts">
+        <div><dt>Problem</dt><dd>Classifying tumour records from a dataset using standard machine learning methods and comparing how well they work.</dd></div>
+        <div><dt>What it covers</dt><dd>A group academic project across the full workflow: data collection, pre-processing, exploratory analysis, Decision Tree and Random Forest models, evaluation, visualization, and a written PDF report.</dd></div>
+        <div><dt>Built with</dt><dd>R, RStudio, Decision Tree, Random Forest, data visualization</dd></div>
+      </dl>
+
+      <div class="w-actions">
+        <button type="button" class="w-btn" data-explode="data" aria-pressed="false">Separate the layers</button>
+        <a class="w-link" href="https://github.com/siddheshkedari953-beep" target="_blank" rel="noopener noreferrer">GitHub profile</a>
+      </div>
+
+      <ol class="stage-list layer-list" data-stack="data">
+        <li><button type="button" data-i="0"><strong>Data</strong><span>Dataset collection and loading.</span></button></li>
+        <li><button type="button" data-i="1"><strong>Pre-processing</strong><span>Cleaning and preparing the records.</span></button></li>
+        <li><button type="button" data-i="2"><strong>Exploration</strong><span>Plots and summaries to understand the data.</span></button></li>
+        <li><button type="button" data-i="3"><strong>Models</strong><span>Decision Tree and Random Forest.</span></button></li>
+        <li><button type="button" data-i="4"><strong>Evaluation and report</strong><span>Model evaluation and the written PDF report.</span></button></li>
+      </ol>
+      <p class="w-note">The dots in the 3D view are an illustration of two classes, not the project's data or results.</p>
+    </div>
+  </section>
+
+  <!-- D3 · THIS PORTFOLIO -->
+  <section class="w-scene w-scene--tall" id="proj-site" aria-labelledby="psTitle">
+    <div class="w-panel w-panel--wide">
+      <h3 class="w-title" id="psTitle">This portfolio</h3>
+      <dl class="w-facts">
+        <div><dt>Problem</dt><dd>A CV does not show how I build. This site is a working example of frontend and deployment skills.</dd></div>
+        <div><dt>What I built</dt><dd>Built on an open-source GSAP template and customized with my own content, sections and this 3D world. Deployed on Vercel from GitHub.</dd></div>
+        <div><dt>Built with</dt><dd>HTML, CSS, JavaScript, GSAP, ScrollTrigger, Three.js, Vercel</dd></div>
+      </dl>
+
+      <div class="w-actions">
+        <button type="button" class="w-btn" data-explode="site" aria-pressed="false">Separate the layers</button>
+        <a class="w-link" href="https://github.com/siddheshkedari953-beep/siddhesh-portfolio" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+      </div>
+
+      <ol class="stage-list layer-list" data-stack="site">
+        <li><button type="button" data-i="0"><strong>Frame sequences</strong><span>Canvas frames scrubbed by scroll in the hero.</span></button></li>
+        <li><button type="button" data-i="1"><strong>Video scenes</strong><span>Pinned and parallax video sections.</span></button></li>
+        <li><button type="button" data-i="2"><strong>Scroll motion</strong><span>GSAP and ScrollTrigger drive the timing.</span></button></li>
+        <li><button type="button" data-i="3"><strong>3D world</strong><span>Three.js scenes from this section onward.</span></button></li>
+        <li><button type="button" data-i="4"><strong>Deployment</strong><span>GitHub to Vercel.</span></button></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- D4 · MORE PROJECTS -->
+  <section class="w-scene w-scene--short" id="more-projects" aria-labelledby="mpTitle">
+    <div class="w-panel w-panel--wide">
+      <h3 class="w-title" id="mpTitle">More projects</h3>
+      <ul class="more-list">
+        <li>
+          <h4>Taska: serverless to-do app</h4>
+          <p>S3 and CloudFront serve the frontend. API Gateway and Lambda handle requests. DynamoDB stores the tasks.</p>
+          <a class="w-link" href="https://github.com/siddheshkedari953-beep" target="_blank" rel="noopener noreferrer">GitHub profile</a>
+        </li>
+        <li>
+          <h4>Ledger: expense tracker</h4>
+          <p>Income and expense tracking in rupees with charts, saved in the browser. HTML, CSS, JavaScript and Chart.js.</p>
+          <a class="w-link" href="https://github.com/siddheshkedari953-beep" target="_blank" rel="noopener noreferrer">GitHub profile</a>
+        </li>
+        <li>
+          <h4>Exam Mentor AI</h4>
+          <p>A React chat interface that helps students revise by asking questions and getting structured answers.</p>
+          <a class="w-link" href="https://github.com/siddheshkedari953-beep" target="_blank" rel="noopener noreferrer">GitHub profile</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- E · JOURNEY (also holds #roadmap and #education for the nav links) -->
+  <section class="w-scene w-scene--journey" id="journey" aria-labelledby="jyTitle">
+    <div class="w-panel w-panel--wide">
+      <h2 id="jyTitle">Technical journey</h2>
+      <p>From computer science fundamentals toward cloud engineering and DevOps. The glowing marker follows your scroll.</p>
+      <ol class="journey-list" id="journeyList">
+        <li><strong>Computer science with Honours</strong><span>Final-year student at MIT-WPU, Pune, specializing in Cloud Computing.</span></li>
+        <li><strong>Cloud foundations</strong><span>Virtualization, load balancing, and the core services of AWS, Google Cloud and Azure.</span></li>
+        <li><strong>Data and Big Data</strong><span>R for analysis and visualization. Hadoop, Hive, Pig and Spark concepts.</span></li>
+        <li><strong>Serverless on AWS</strong><span>Taska, built on S3, CloudFront, API Gateway, Lambda and DynamoDB.</span></li>
+        <li><strong>Containers and CI/CD</strong><span>Student Task Manager: Jenkins, Docker and K3s on AWS EC2.</span></li>
+        <li><strong>Now: improving the pipeline</strong><span>Refining the existing workflow. Infrastructure as code (Terraform) and deployment monitoring are planned, not done.</span></li>
+        <li><strong>Graduation</strong><span>Expected 2027.</span></li>
+      </ol>
+
+      <div id="roadmap" class="w-sub">
+        <h3>What I'm working on next</h3>
+        <ul>
+          <li>Improving the Student Task Manager pipeline.</li>
+          <li>Refining the R classification workflow and its visual reporting.</li>
+          <li>Improving this portfolio's mobile experience and loading performance.</li>
+          <li>Planned: cloud automation and monitoring.</li>
+        </ul>
+      </div>
+
+      <details class="w-sub" id="education">
+        <summary>Education and key coursework</summary>
+        <p><strong>Bachelor of Computer Science with Honours</strong>, MIT World Peace University (MIT-WPU), Pune. Specialization: Cloud Computing. Expected graduation: 2027.</p>
+        <ul>
+          <li>Cloud infrastructure and management: virtualization, hypervisors, machine imaging, load balancing, the AWS ecosystem.</li>
+          <li>Cloud platforms: AWS, Google Cloud and Microsoft Azure.</li>
+          <li>Big Data: Hadoop, HDFS, MapReduce, Hive, Pig, Spark.</li>
+          <li>Data analysis and visualization using R.</li>
+          <li>Networking fundamentals and cybersecurity fundamentals.</li>
+        </ul>
+      </details>
+    </div>
+  </section>
+
+  <!-- F · CONTACT -->
+  <section class="contact w-scene w-scene--contact" id="contact">
+    <div class="contact__content">
+      <div class="w-panel w-panel--wide">
+        <div class="contact__label">
+          <span class="label-line"></span>
+          <span>Get in touch</span>
+        </div>
+
+        <h2 class="contact__heading reveal-text">
+          Let's build<br />something meaningful.
+        </h2>
+
+        <p class="w-lede">
+          I'm interested in Cloud Engineer, DevOps Engineer, and Software
+          Developer opportunities where I can learn, contribute, and grow
+          through practical work.
+        </p>
+
+        <a href="mailto:siddheshkedari953@gmail.com" class="contact__email reveal-up contact-email">siddheshkedari953@gmail.com</a>
+
+        <p class="w-phone"><a href="tel:+919881602620">+91 9881602620</a></p>
+
+        <div class="contact__footer">
+          <div class="contact__copy">© 2026 Siddhesh Kedari. Personal portfolio.</div>
+          <div class="contact__socials">
+            <a href="https://github.com/siddheshkedari953-beep" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/siddhesh-kedari-256405298" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="#hero">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+  <!-- ORIGINAL ANIMATION LIBRARIES -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+  <script src="main.js"></script>
+  <!-- 3D world: Three.js is loaded lazily by this script when the visitor nears the section -->
+  <script src="world/world.js" defer></script>
+
+</body>
+</html>
